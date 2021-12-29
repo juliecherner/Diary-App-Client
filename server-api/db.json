@@ -1,0 +1,114 @@
+{
+    "advisedTodo": [
+        {
+            "id":"id1",
+            "todo": "Sleep 1 hour more than usual"
+        },
+
+        {
+            "id":"id2",
+            "todo": "Have a 30 minutes walk"
+        },
+        {
+            "id":"id3",
+            "todo": "Talk at least to 1 friend"
+        },
+
+        {
+            "id":"id4",
+            "todo": "Eat at least 1 fruit and 1 vegetable"
+        },
+
+        {
+            "id":"id5",
+            "todo": "Read the article you wanted to read last week"
+        },
+
+        {
+            "id":"id6",
+            "todo": "Watch 1 serial episode"
+        },
+
+        {
+            "id":"id7",
+            "todo": "Find at least 5 funny jokes"
+        },
+
+
+        {
+            "id":"id8",
+            "todo": "Sit 10 minutes in the silence and don’t think about anything"
+        },
+
+        {
+            "id":"id9",
+            "todo": "Call to your friend than you haven’t spoken for some period of time"
+        },
+
+        {
+            "id":"id10",
+            "todo": "Clean your apartment"
+        },
+
+        {
+            "id":"id11",
+            "todo": "Throw away at least 1 thing that you don’t need"
+        },
+        {
+            "id":"id12",
+            "todo": "Find 2 hours for doing nothing"
+        },
+        {
+            "id":"id13",
+            "todo": "Do a workout"
+        },
+        {
+            "id":"id14",
+            "todo": "Have 1 hour walk"
+        },
+        {
+            "id":"id15",
+            "todo": "Do 1 thing that you postpone all the time"
+        },
+        {
+            "id":"id16",
+            "todo": "Postpone 1 todo that is not important and not urgent"
+        },
+        {
+            "id":"id17",
+            "todo": "Call to one of your relatives"
+        },
+        {
+            "id":"id18",
+            "todo": "Think if you are satisfited with what you do in your life"
+        },
+        {
+            "id":"id19",
+            "todo": "Have 40 minutes walk"
+        },
+        {
+            "id":"id20",
+            "todo": "Have 20 minutes walk"
+        },
+        {
+            "id":"id21",
+            "todo": "Go early to bed"
+        },
+        {
+            "id":"id22",
+            "todo": "Read what you want during 15 minutes"
+        },
+        {
+            "id":"id23",
+            "todo": "Eat only healthy food today"
+        },
+        {
+            "id":"id24",
+            "todo": "Think about the trip you would like to go to"
+        },
+        {
+            "id":"id25",
+            "todo": "Learn something new you wanted but didn’t have enough time"
+        }   
+    ]
+}
