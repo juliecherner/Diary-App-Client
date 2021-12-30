@@ -1,7 +1,7 @@
 import react from "react";
 
 const AdvisedTodo = () => {
-  return <div>I'm an advised todo inside list</div>;
+  return <div>aa</div>;
 };
 
 export default AdvisedTodo;

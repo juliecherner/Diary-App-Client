@@ -1,5 +1,5 @@
 {
-    "advisedTodo": [
+    "todos": [
         {
             "id":"id1",
             "todo": "Sleep 1 hour more than usual"

@@ -1,34 +1,29 @@
 import react, { useEffect, useState } from "react";
-import axios from "axios";
 import Todo from "../todo/Todo";
 import AdvisedTodo from "../advisedTodo/AdvisedTodo";
-
+import { insertOne, getOne, getAll } from "../../api/api";
 const TodoList = () => {
-  let [currentAdvisedTodo, setCurrentAdvisedTodo] = useState("");
-  const getAdvisedTodo = async () => {
-    try {
-      let randomId = "id" + Math.ceil(Math.random() * 25).toString();
+  const [todos, setTodos] = useState({});
 
-      let response = await axios.get(
-        "http://localhost:3006/advisedTodo/" + randomId
-      );
-      console.log(response.data);
-      setCurrentAdvisedTodo(response.data.todo);
-    } catch (error) {
-      throw new Error("You have an error", error);
-    }
+  const getAdvisedTodo = async () => {
+    const data = await getAll("todos");
+
+    setTodos(data);
   };
 
   useEffect(() => {
+    getOne("todos", 0);
     getAdvisedTodo();
   }, []);
 
+  const items = [];
+  for (const key in todos) {
+    items.push(<Todo title={todos[key].todo} key={todos[key].id} />);
+  }
   return (
     <div>
       I'm a todo list
-      <Todo />
-      <AdvisedTodo />
-      {currentAdvisedTodo}
+      {items}
     </div>
   );
 };
