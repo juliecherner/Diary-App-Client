@@ -1,29 +1,37 @@
 import react, { useEffect, useState } from "react";
 import Todo from "../todo/Todo";
-import AdvisedTodo from "../advisedTodo/AdvisedTodo";
-import { insertOne, getOne, getAll } from "../../api/api";
+import { getOne } from "../../api/api";
+
 const TodoList = () => {
-  const [todos, setTodos] = useState({});
+  const [todos, setTodos] = useState([]);
 
   const getAdvisedTodo = async () => {
-    const data = await getAll("todos");
-
-    setTodos(data);
+    const random = Math.floor(Math.random() * 25);
+    const data = await getOne("todos", random);
+    setTodos([...todos, data]);
   };
 
   useEffect(() => {
-    getOne("todos", 0);
     getAdvisedTodo();
   }, []);
 
-  const items = [];
-  for (const key in todos) {
-    items.push(<Todo title={todos[key].todo} key={todos[key].id} />);
-  }
+  const displayAdvisedTodo = () => {
+    return todos.map((todo) => {
+      return (
+        <Todo
+          data={todo}
+          key={todo.id}
+          status="Advised"
+          buttonsText={["Done", "Postpone", "Delete"]}
+        />
+      );
+    });
+  };
+
   return (
     <div>
-      I'm a todo list
-      {items}
+      <div>I'm a todo list</div>
+      <div>{displayAdvisedTodo()}</div>
     </div>
   );
 };
