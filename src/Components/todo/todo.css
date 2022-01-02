@@ -1,5 +1,6 @@
 .todo {
   border: 2px solid blue;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 0.5rem 1rem;
 }

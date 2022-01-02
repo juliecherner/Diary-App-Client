@@ -4,9 +4,10 @@ import AddTodo from "../addTodo/AddTodo";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
 import Area from "../../Components/area/Area.jsx";
+import Analytics from "../../pages/analytics/Analytics";
 import "./todoList.css";
 
-const TodoList = () => {
+const TodoList = ({ checkResults }) => {
   const [advice, setAdvice] = useState([]);
   const [todos, setTodos] = useState([]);
   const [currentTodo, setCurrentTodo] = useState("");
@@ -14,8 +15,8 @@ const TodoList = () => {
   const [done, setDone] = useState([]);
   const [postponed, setPostponed] = useState([]);
   const [deleted, setDeleted] = useState([]);
-  const [editMode, setEditMode] = useState(false);
-  const { editedValue } = useRef("");
+  //const [editMode, setEditMode] = useState(false);
+  //const { editedValue } = useRef("");
 
   const getAdvisedTodo = async () => {
     const random = Math.floor(Math.random() * 25);
@@ -44,6 +45,7 @@ const TodoList = () => {
     if (currentTodo) {
       setTodos([...todos, currentTodo]);
     }
+    setCurrentTodo("");
   };
 
   const getCurrentTime = () => {
@@ -72,16 +74,18 @@ const TodoList = () => {
     setPostponed([...postponed, ...item]);
   };
 
-  const editTodo = (text) => {
-    setEditMode(!editMode);
-    const item = todos.filter((todo) => todo === text);
-    console.log("item", item);
-  };
+  // edit stuff
+  // const editTodo = (text) => {
+  //   setEditMode(!editMode);
+  //   const item = todos.filter((todo) => todo === text);
+  //   console.log("item", item);
+  // };
 
-  const saveChanges = (text) => {
-    setEditMode(!editMode);
-    console.log(editedValue);
-  };
+  // edit stuff
+  // const saveChanges = (text) => {
+  //   setEditMode(!editMode);
+  //   console.log(editedValue);
+  // };
 
   const displayTodos = () => {
     return todos.map((todo) => {
@@ -94,9 +98,9 @@ const TodoList = () => {
             deleteTodo={deleteTodo}
             moveToDone={moveToDone}
             moveToPostponed={moveToPostponed}
-            editTodo={editTodo}
+            // editTodo={editTodo}
           />
-          {editMode && (
+          {/* {editMode && (
             <div>
               <input
                 placeholder="Edit the task"
@@ -105,7 +109,7 @@ const TodoList = () => {
               />
               <button onClick={saveChanges}>Save</button>
             </div>
-          )}
+          )} */}
         </div>
       );
     });
@@ -138,6 +142,7 @@ const TodoList = () => {
     <div>
       <div>I'm a todo list</div>
       <AddTodo
+        inputValue={currentTodo}
         getInput={getInput}
         handleSubmit={handleSubmit}
         setInputToTodos={setInputToTodos}
@@ -152,6 +157,11 @@ const TodoList = () => {
       <div className="areas-container">
         <div>{displayDone()}</div>
         <div> {displayPostponed()}</div>
+      </div>
+      <div>
+        <button onClick={() => checkResults({ done, deleted, postponed })}>
+          Check my effectifity
+        </button>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import react, { useState, useEffect } from "react";
 
-const AddTodo = ({ getInput, handleSubmit, setInputToTodos }) => {
-  const [input, setInput] = useState("");
+const AddTodo = ({ getInput, handleSubmit, setInputToTodos, inputValue }) => {
   // const [importance, setImportance] = useState("");
   // const [urgency, setUrgency] = useState("");
   //const [total, setTotal] = useState([]);
@@ -36,6 +35,7 @@ const AddTodo = ({ getInput, handleSubmit, setInputToTodos }) => {
           type="text"
           placeholder="Add your todo"
           onChange={getInput}
+          value={todo}
           required
         />
 
