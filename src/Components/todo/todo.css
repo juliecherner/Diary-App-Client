@@ -1,0 +1,5 @@
+.todo {
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: row;
+}

@@ -1,18 +1,25 @@
-import react from "react";
-import Button from "../button/Button";
+import "./todo.css";
 
-const Todo = ({ data, status, buttonsText }) => {
-  const displaybuttonsText = () => {
-    return buttonsText.map((buttonText, index) => {
-      return <Button key={index} name={buttonText} text={buttonText} />;
-    });
-  };
-
+const Todo = ({
+  text,
+  date,
+  deleteTodo,
+  moveToDone,
+  moveToPostponed,
+  editTodo,
+}) => {
   return (
-    <div key={data.id}>
-      <div>{status}</div>
-      <div>{data.todo}</div>
-      {displaybuttonsText()}
+    <div className="todo">
+      <div className="todo-container">
+        <div>{text}</div>
+        <div>Created {date}</div>
+      </div>
+      <div className="todo-buttons">
+        <button onClick={() => deleteTodo(text)}>Delete</button>
+        <button onClick={() => editTodo(text)}>Edit</button>
+        <button onClick={() => moveToDone(text)}>Done</button>
+        <button onClick={() => moveToPostponed(text)}>Postponed</button>
+      </div>
     </div>
   );
 };

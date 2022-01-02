@@ -1,0 +1,8 @@
+.advised-todo {
+  border: 2px solid red;
+}
+
+.areas-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
