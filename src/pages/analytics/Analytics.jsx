@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-const Analytics = ({ deleted, postponed }) => {
+import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
+import Chart from "../../Components/chart/Chart";
+
+const Analytics = () => {
   const [done, setDone] = useState(() => {
     const savedDone = localStorage.getItem("done") || "[]";
     console.log("savedDone", savedDone);
@@ -7,34 +10,33 @@ const Analytics = ({ deleted, postponed }) => {
     return todosArray;
   });
 
-  // const displayDone = () => {
-  //   return done.map((doneItem, index) => <div key={index}>{doneItem}</div>);
-  // };
+  const [postponed, setPostponed] = useState(() => {
+    const savedPostponed = localStorage.getItem("postponed") || "[]";
+    const todosArray = JSON.parse(savedPostponed);
+    return todosArray;
+  });
 
-  //   const displayPostponed = ({ postponed }) => {
-  //     return postponed.map((postponedItem, index) => (
-  //       <div key={index}>{postponedItem}</div>
-  //     ));
-  //   };
+  const [deleted, setDeleted] = useState(() => {
+    const deletedPostponed = localStorage.getItem("deleted") || "[]";
+    const todosArray = JSON.parse(deletedPostponed);
+    return todosArray;
+  });
 
-  //   const displayDeleted = () => {
-  //     return deleted.map((deletedItem, index) => (
-  //       <div key={index}>{deletedItem}</div>
-  //     ));
-  //   };
+  const getTotalNumber = () => {
+    return done.length + postponed.length + deleted.length;
+  };
 
   return (
     <div>
       <div>I'm analitika</div>
-      <div>Done todos</div>
-      {/* {displayDone()} */}
-      {/* <div>Postponed todos</div>
-      {displayPostponed()}
-      <div>Deleted todos</div>
-      {displayDeleted()} */}
-      {console.log("analytics deleted", deleted)}
-      {console.log("analytics dooone", done)}
-      {console.log("analytics potponed", postponed)}
+      <ResultsBlock data={done} name="Done" total={getTotalNumber()} />
+      <ResultsBlock data={deleted} name="Deleted" total={getTotalNumber()} />
+      <ResultsBlock
+        data={postponed}
+        name="Postponed"
+        total={getTotalNumber()}
+      />
+      <Chart done={done} deleted={deleted} postponed={postponed} />
     </div>
   );
 };

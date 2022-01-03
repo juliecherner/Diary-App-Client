@@ -28,11 +28,20 @@ const TodoList = ({ checkResults }) => {
     return todosArray;
   });
 
+  const [postponed, setPostponed] = useState(() => {
+    const savedPostponed = localStorage.getItem("postponed") || "[]";
+    const todosArray = JSON.parse(savedPostponed);
+    return todosArray;
+  });
+
+  const [deleted, setDeleted] = useState(() => {
+    const deletedPostponed = localStorage.getItem("deleted") || "[]";
+    const todosArray = JSON.parse(deletedPostponed);
+    return todosArray;
+  });
+
   const [currentTodo, setCurrentTodo] = useState("");
   const [adviceButtons, setAdviceButtons] = useState(true);
-  // const [done, setDone] = useState([]);
-  const [postponed, setPostponed] = useState([]);
-  const [deleted, setDeleted] = useState([]);
 
   //const [editMode, setEditMode] = useState(false);
 
@@ -191,16 +200,6 @@ const TodoList = ({ checkResults }) => {
       <div className="areas-container">
         <div>{displayDone()}</div>
         <div> {displayPostponed()}</div>
-      </div>
-      <div>
-        <nav>
-          <Link to="/">Return home</Link>
-          <Link to="/analytics">
-            <button onClick={() => checkResults({ done, deleted, postponed })}>
-              Analyze my data
-            </button>
-          </Link>
-        </nav>
       </div>
     </div>
   );
