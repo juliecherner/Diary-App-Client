@@ -1,22 +1,40 @@
 import react, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import Advice from "../advice/Advice";
 import AddTodo from "../addTodo/AddTodo";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
 import Area from "../../Components/area/Area.jsx";
-import Analytics from "../../pages/analytics/Analytics";
 import "./todoList.css";
 
 const TodoList = ({ checkResults }) => {
   const [advice, setAdvice] = useState([]);
-  const [todos, setTodos] = useState([]);
+
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos") || "[]";
+    console.log("savedTodos", savedTodos);
+    if (savedTodos) {
+      const todosArray = JSON.parse(savedTodos);
+      return todosArray;
+    } else {
+      return [];
+    }
+  });
+
+  const [done, setDone] = useState(() => {
+    const savedDone = localStorage.getItem("done") || "[]";
+    console.log("savedDone", savedDone);
+    const todosArray = JSON.parse(savedDone);
+    return todosArray;
+  });
+
   const [currentTodo, setCurrentTodo] = useState("");
   const [adviceButtons, setAdviceButtons] = useState(true);
-  const [done, setDone] = useState([]);
+  // const [done, setDone] = useState([]);
   const [postponed, setPostponed] = useState([]);
   const [deleted, setDeleted] = useState([]);
+
   //const [editMode, setEditMode] = useState(false);
-  //const { editedValue } = useRef("");
 
   const getAdvisedTodo = async () => {
     const random = Math.floor(Math.random() * 25);
@@ -88,29 +106,27 @@ const TodoList = ({ checkResults }) => {
   // };
 
   const displayTodos = () => {
-    return todos.map((todo) => {
+    return todos.map((todo, index) => {
       return (
-        <div>
-          <Todo
-            key={todo}
-            text={todo}
-            date={getCurrentTime()}
-            deleteTodo={deleteTodo}
-            moveToDone={moveToDone}
-            moveToPostponed={moveToPostponed}
-            // editTodo={editTodo}
-          />
-          {/* {editMode && (
-            <div>
-              <input
-                placeholder="Edit the task"
-                ref={editedValue}
-                value={editedValue}
-              />
-              <button onClick={saveChanges}>Save</button>
-            </div>
-          )} */}
-        </div>
+        <Todo
+          key={index}
+          text={todo}
+          date={getCurrentTime()}
+          deleteTodo={deleteTodo}
+          moveToDone={moveToDone}
+          moveToPostponed={moveToPostponed}
+          // editTodo={editTodo}
+        />
+        // {/* {editMode && (
+        //   <div>
+        //     <input
+        //       placeholder="Edit the task"
+        //       ref={editedValue}
+        //       value={editedValue}
+        //     />
+        //     <button onClick={saveChanges}>Save</button>
+        //   </div>
+        // )} */}
       );
     });
   };
@@ -138,6 +154,24 @@ const TodoList = ({ checkResults }) => {
     getAdvisedTodo();
   }, []);
 
+  useEffect(() => {
+    console.log(todos);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
+    console.log("done", done);
+    localStorage.setItem("done", JSON.stringify(done));
+  }, [done]);
+
+  useEffect(() => {
+    localStorage.setItem("postponed", JSON.stringify(postponed));
+  }, [postponed]);
+
+  useEffect(() => {
+    localStorage.setItem("deleted", JSON.stringify(deleted));
+  }, [deleted]);
+
   return (
     <div>
       <div>I'm a todo list</div>
@@ -159,9 +193,14 @@ const TodoList = ({ checkResults }) => {
         <div> {displayPostponed()}</div>
       </div>
       <div>
-        <button onClick={() => checkResults({ done, deleted, postponed })}>
-          Check my effectifity
-        </button>
+        <nav>
+          <Link to="/">Return home</Link>
+          <Link to="/analytics">
+            <button onClick={() => checkResults({ done, deleted, postponed })}>
+              Analyze my data
+            </button>
+          </Link>
+        </nav>
       </div>
     </div>
   );

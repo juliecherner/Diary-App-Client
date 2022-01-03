@@ -1,7 +1,15 @@
-const Analytics = ({ deleted, done, postponed }) => {
-  //   const displayDone = () => {
-  //     return done.map((doneItem, index) => <div key={index}>{doneItem}</div>);
-  //   };
+import { useState, useEffect } from "react";
+const Analytics = ({ deleted, postponed }) => {
+  const [done, setDone] = useState(() => {
+    const savedDone = localStorage.getItem("done") || "[]";
+    console.log("savedDone", savedDone);
+    const todosArray = JSON.parse(savedDone);
+    return todosArray;
+  });
+
+  // const displayDone = () => {
+  //   return done.map((doneItem, index) => <div key={index}>{doneItem}</div>);
+  // };
 
   //   const displayPostponed = ({ postponed }) => {
   //     return postponed.map((postponedItem, index) => (
@@ -19,8 +27,8 @@ const Analytics = ({ deleted, done, postponed }) => {
     <div>
       <div>I'm analitika</div>
       <div>Done todos</div>
-      {/* {displayDone()}
-      <div>Postponed todos</div>
+      {/* {displayDone()} */}
+      {/* <div>Postponed todos</div>
       {displayPostponed()}
       <div>Deleted todos</div>
       {displayDeleted()} */}
