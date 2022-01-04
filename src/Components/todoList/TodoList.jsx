@@ -1,5 +1,4 @@
 import react, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import Advice from "../advice/Advice";
 import AddTodo from "../addTodo/AddTodo";
 import Todo from "../todo/Todo";
@@ -7,12 +6,12 @@ import { getOne } from "../../api/api";
 import Area from "../../Components/area/Area.jsx";
 import "./todoList.css";
 
-const TodoList = ({ checkResults }) => {
+const TodoList = () => {
   const [advice, setAdvice] = useState([]);
 
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos") || "[]";
-    console.log("savedTodos", savedTodos);
+
     if (savedTodos) {
       const todosArray = JSON.parse(savedTodos);
       return todosArray;
@@ -23,7 +22,7 @@ const TodoList = ({ checkResults }) => {
 
   const [done, setDone] = useState(() => {
     const savedDone = localStorage.getItem("done") || "[]";
-    console.log("savedDone", savedDone);
+
     const todosArray = JSON.parse(savedDone);
     return todosArray;
   });
@@ -43,7 +42,7 @@ const TodoList = ({ checkResults }) => {
   const [currentTodo, setCurrentTodo] = useState("");
   const [adviceButtons, setAdviceButtons] = useState(true);
 
-  //const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   const getAdvisedTodo = async () => {
     const random = Math.floor(Math.random() * 25);
@@ -101,12 +100,11 @@ const TodoList = ({ checkResults }) => {
     setPostponed([...postponed, ...item]);
   };
 
-  // edit stuff
-  // const editTodo = (text) => {
-  //   setEditMode(!editMode);
-  //   const item = todos.filter((todo) => todo === text);
-  //   console.log("item", item);
-  // };
+  const editTodo = (text) => {
+    setEditMode(!editMode);
+    const item = todos.filter((todo) => todo === text);
+    console.log("item", item);
+  };
 
   // edit stuff
   // const saveChanges = (text) => {
@@ -124,7 +122,7 @@ const TodoList = ({ checkResults }) => {
           deleteTodo={deleteTodo}
           moveToDone={moveToDone}
           moveToPostponed={moveToPostponed}
-          // editTodo={editTodo}
+          editTodo={editTodo}
         />
         // {/* {editMode && (
         //   <div>
@@ -159,17 +157,28 @@ const TodoList = ({ checkResults }) => {
     });
   };
 
+  const clearAllData = () => {
+    setTodos([]);
+    setDone([]);
+    setPostponed([]);
+    setDeleted([]);
+  };
+
+  const clearMarkedData = () => {
+    setDone([]);
+    setDeleted([]);
+    setPostponed([]);
+  };
+
   useEffect(() => {
     getAdvisedTodo();
   }, []);
 
   useEffect(() => {
-    console.log(todos);
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   useEffect(() => {
-    console.log("done", done);
     localStorage.setItem("done", JSON.stringify(done));
   }, [done]);
 
@@ -201,6 +210,8 @@ const TodoList = ({ checkResults }) => {
         <div>{displayDone()}</div>
         <div> {displayPostponed()}</div>
       </div>
+      <button onClick={clearAllData}>Clear all data</button>
+      <button onClick={clearMarkedData}>Clear all except current todos</button>
     </div>
   );
 };

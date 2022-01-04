@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
-import Chart from "../../Components/chart/Chart";
+import Chart from "../../Components/analyticsChart/analyticsChart";
 
 const Analytics = () => {
+  const [showChart, setShowChart] = useState(false);
+  const [tasksLength, setTasksLength] = useState(0);
+
   const [done, setDone] = useState(() => {
     const savedDone = localStorage.getItem("done") || "[]";
-    console.log("savedDone", savedDone);
     const todosArray = JSON.parse(savedDone);
     return todosArray;
   });
@@ -22,21 +25,55 @@ const Analytics = () => {
     return todosArray;
   });
 
-  const getTotalNumber = () => {
-    return done.length + postponed.length + deleted.length;
-  };
+  useEffect(() => {
+    setTasksLength(done.length + postponed.length + deleted.length);
+  });
 
   return (
     <div>
-      <div>I'm analitika</div>
-      <ResultsBlock data={done} name="Done" total={getTotalNumber()} />
-      <ResultsBlock data={deleted} name="Deleted" total={getTotalNumber()} />
-      <ResultsBlock
-        data={postponed}
-        name="Postponed"
-        total={getTotalNumber()}
-      />
-      <Chart done={done} deleted={deleted} postponed={postponed} />
+      {tasksLength ? (
+        <div>
+          <div>Total {tasksLength} marked todos</div>
+          <ResultsBlock
+            data={done}
+            name="Done"
+            total={tasksLength}
+            color="green"
+          />
+          <ResultsBlock
+            data={deleted}
+            name="Deleted"
+            total={tasksLength}
+            color="red"
+          />
+          <ResultsBlock
+            data={postponed}
+            name="Postponed"
+            total={tasksLength}
+            color="yellow"
+          />
+          <button onClick={() => setShowChart(!showChart)}>
+            Show a diagram
+          </button>
+
+          {showChart && (
+            <div>
+              <Chart
+                data={[done.length, deleted.length, postponed.length]}
+                labels={["Done", "Deleted", "Postponed"]}
+              />
+              <button onClick={() => setShowChart(!showChart)}>
+                Hide a diagram
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div>
+          You don't have marked todos.
+          <Link to="/diary">Mark your progress in diary</Link>
+        </div>
+      )}
     </div>
   );
 };

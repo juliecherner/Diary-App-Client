@@ -7,7 +7,6 @@ const Time = () => {
       minute: "2-digit",
     })
   );
-
   const [actualDate, setActualDate] = useState(new Date().toDateString());
 
   const getTime = () => {
@@ -20,7 +19,7 @@ const Time = () => {
     setActualDate(date);
   };
 
-  setInterval(getTime, 1000);
+  setInterval(getTime, 2000);
 
   return (
     <div>
