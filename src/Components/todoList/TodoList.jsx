@@ -3,7 +3,7 @@ import Advice from "../advice/Advice";
 import AddTodo from "../addTodo/AddTodo";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
-import Area from "../../Components/area/Area";
+import Area from "../area/Area";
 import "./todoList.css";
 
 const TodoList = () => {

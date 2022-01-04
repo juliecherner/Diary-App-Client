@@ -1,9 +1,9 @@
 import react from "react";
 import { Link } from "react-router-dom";
-import Time from "../../Components/time/Time.jsx";
-import TodoList from "../../Components/todoList/TodoList.jsx";
+import Time from "../../Components/time/Time";
+import TodoList from "../../Components/todoList/TodoList";
 
-const Diary = ({ checkResults }) => {
+const Diary = () => {
   return (
     <div>
       <Time />
