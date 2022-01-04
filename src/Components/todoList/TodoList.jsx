@@ -1,9 +1,9 @@
-import react, { useEffect, useState, useRef } from "react";
+import react, { useEffect, useState } from "react";
 import Advice from "../advice/Advice";
-import AddTodo from "../addTodo/AddTodo.jsx";
+import AddTodo from "../addTodo/AddTodo";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
-import Area from "../../Components/area/Area.jsx";
+import Area from "../../Components/area/Area";
 import "./todoList.css";
 
 const TodoList = () => {
@@ -41,8 +41,6 @@ const TodoList = () => {
 
   const [currentTodo, setCurrentTodo] = useState("");
   const [adviceButtons, setAdviceButtons] = useState(true);
-
-  const [editMode, setEditMode] = useState(false);
 
   const getAdvisedTodo = async () => {
     const random = Math.floor(Math.random() * 25);
@@ -100,56 +98,40 @@ const TodoList = () => {
     setPostponed([...postponed, ...item]);
   };
 
-  const editTodo = (text) => {
-    setEditMode(!editMode);
-    const item = todos.filter((todo) => todo === text);
-    console.log("item", item);
-  };
-
-  // edit stuff
-  // const saveChanges = (text) => {
-  //   setEditMode(!editMode);
-  //   console.log(editedValue);
-  // };
-
   const displayTodos = () => {
     return todos.map((todo, index) => {
       return (
         <Todo
-          key={index}
+          key={todo + index}
           text={todo}
           date={getCurrentTime()}
           deleteTodo={deleteTodo}
           moveToDone={moveToDone}
           moveToPostponed={moveToPostponed}
-          editTodo={editTodo}
         />
-        // {/* {editMode && (
-        //   <div>
-        //     <input
-        //       placeholder="Edit the task"
-        //       ref={editedValue}
-        //       value={editedValue}
-        //     />
-        //     <button onClick={saveChanges}>Save</button>
-        //   </div>
-        // )} */}
       );
     });
   };
 
   const displayDone = () => {
-    return done.map((doneTodo) => {
-      return <Area name="Done" key={doneTodo} text={doneTodo} color="green" />;
+    return done.map((doneTodo, index) => {
+      return (
+        <Area
+          name="Done"
+          key={doneTodo + index}
+          text={doneTodo}
+          color="green"
+        />
+      );
     });
   };
 
   const displayPostponed = () => {
-    return postponed.map((postponedTodo) => {
+    return postponed.map((postponedTodo, index) => {
       return (
         <Area
           name="Postponed"
-          key={postponedTodo}
+          key={postponedTodo + index}
           text={postponedTodo}
           color="yellow"
         />

@@ -1,13 +1,6 @@
 import "./todo.css";
 
-const Todo = ({
-  text,
-  date,
-  deleteTodo,
-  moveToDone,
-  moveToPostponed,
-  editTodo,
-}) => {
+const Todo = ({ text, date, deleteTodo, moveToDone, moveToPostponed }) => {
   return (
     <div className="todo">
       <div className="todo-container">
@@ -16,7 +9,6 @@ const Todo = ({
       </div>
       <div className="todo-buttons">
         <button onClick={() => deleteTodo(text)}>Delete</button>
-        <button onClick={() => editTodo(text)}>Edit</button>
         <button onClick={() => moveToDone(text)}>Done</button>
         <button onClick={() => moveToPostponed(text)}>Postponed</button>
       </div>

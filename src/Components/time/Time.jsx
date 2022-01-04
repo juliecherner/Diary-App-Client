@@ -19,7 +19,12 @@ const Time = () => {
     setActualDate(date);
   };
 
-  setInterval(getTime, 2000);
+  useEffect(() => {
+    // const source = CancelToken.source();
+    setInterval(getTime, 5000);
+    // {
+    //   cancelToken: source.token}
+  }, [actualTime, actualDate]);
 
   return (
     <div>
