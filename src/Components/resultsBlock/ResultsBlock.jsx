@@ -17,10 +17,6 @@ export default function ResultsBlock({ name, data, total, color }) {
 
   fullFillRows();
 
-  //     createData("Frozen yoghurt", 159, 6.0),
-  //     createData("Gingerbread", 356, 16.0),
-  //   ].sort((a, b) => (a.calories < b.calories ? -1 : 1));
-
   const blue = {
     200: "#A5D8FF",
     400: "#3399FF",
@@ -162,8 +158,8 @@ export default function ResultsBlock({ name, data, total, color }) {
             {(rowsPerPage > 0
               ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : rows
-            ).map((row) => (
-              <tr key={row.text}>
+            ).map((row, index) => (
+              <tr key={row.text + index}>
                 <td>{row.category}</td>
                 <td style={{ width: 500 }} align="right">
                   {row.text}

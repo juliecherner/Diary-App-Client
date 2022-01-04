@@ -5,6 +5,8 @@ import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
 import Area from "../area/Area";
 import "./todoList.css";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 const TodoList = () => {
   const [advice, setAdvice] = useState([]);
@@ -174,7 +176,6 @@ const TodoList = () => {
 
   return (
     <div>
-      <div>I'm a todo list</div>
       <AddTodo
         inputValue={currentTodo}
         getInput={getInput}
@@ -192,8 +193,12 @@ const TodoList = () => {
         <div>{displayDone()}</div>
         <div> {displayPostponed()}</div>
       </div>
-      <button onClick={clearAllData}>Clear all data</button>
-      <button onClick={clearMarkedData}>Clear all except current todos</button>
+      <Button variant="outlined" color="error" onClick={clearAllData}>
+        Clear all data
+      </Button>
+      <Button variant="outlined" color="success" onClick={clearMarkedData}>
+        Leave todos only
+      </Button>
     </div>
   );
 };

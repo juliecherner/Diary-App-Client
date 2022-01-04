@@ -7,7 +7,7 @@ const Warning = ({ total, todos, deleted, postponed, done }) => {
       {Math.floor((todos.length / total) * 100) > 50 && (
         <Alert variant="outlined" severity="error">
           Warning: Pay attention that more than 50% of your todos are not done,
-          postponed or deleted
+          not postponed or not deleted
         </Alert>
       )}
       {Math.floor((deleted.length / total) * 100) > 30 && (
@@ -23,7 +23,8 @@ const Warning = ({ total, todos, deleted, postponed, done }) => {
       )}
       {Math.floor((postponed.length / total) * 100) > 33.34 && (
         <Alert variant="outlined" severity="warning">
-          Warning: Pay attention that you posponed more than third of your todos
+          Warning: Pay attention that you postponed more than third of your
+          todos
         </Alert>
       )}
     </Stack>

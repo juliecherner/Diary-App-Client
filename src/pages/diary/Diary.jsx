@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Time from "../../Components/time/Time";
 import TodoList from "../../Components/todoList/TodoList";
@@ -7,7 +7,6 @@ const Diary = () => {
   return (
     <div>
       <Time />
-      <div>i'm a diary</div>
       <TodoList />
       <nav>
         <Link to="/">Return home</Link>

@@ -2,6 +2,8 @@ import react from "react";
 import "./advice.css";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
 import AddTaskIcon from "@mui/icons-material/AddTask";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
   return (
@@ -10,12 +12,25 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
         <div className="advice">
           <div>{object.todo}</div>
           <div className="advice-buttons">
-            <button onClick={setAdviceToList}>
-              <AddTaskIcon /> Good, add to list
-            </button>
-            <button onClick={deleteAdvice}>
-              <NotInterestedIcon /> Bad, delete
-            </button>
+            <ButtonGroup>
+              <Button
+                onClick={setAdviceToList}
+                variant="outlined"
+                color="success"
+                onClick={setAdviceToList}
+                size="small"
+              >
+                <AddTaskIcon /> Good, add to list
+              </Button>
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={deleteAdvice}
+                size="small"
+              >
+                <NotInterestedIcon /> Bad, delete
+              </Button>
+            </ButtonGroup>
           </div>
         </div>
       )}
