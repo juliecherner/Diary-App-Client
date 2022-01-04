@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
 import Chart from "../../Components/analyticsChart/analyticsChart";
+//import Chart from "../../Components/analyticsChart/analyticsChart";
+import Warning from "../../Components/warning/Warning";
 
 const Analytics = () => {
   const [showChart, setShowChart] = useState(false);
@@ -25,15 +27,36 @@ const Analytics = () => {
     return todosArray;
   });
 
+  const [todos, setTodos] = useState(() => {
+    const todoItems = localStorage.getItem("todos") || "[]";
+    const todosArray = JSON.parse(todoItems);
+    return todosArray;
+  });
+
   useEffect(() => {
-    setTasksLength(done.length + postponed.length + deleted.length);
+    setTasksLength(
+      done.length + postponed.length + deleted.length + todos.length
+    );
   });
 
   return (
     <div>
       {tasksLength ? (
         <div>
-          <div>Total {tasksLength} marked todos</div>
+          <div>Total {tasksLength} todos</div>
+          <Warning
+            done={done}
+            postponed={postponed}
+            todos={todos}
+            deleted={deleted}
+            total={tasksLength}
+          />
+          <ResultsBlock
+            data={todos}
+            name="InProgress"
+            total={tasksLength}
+            color="pink"
+          />
           <ResultsBlock
             data={done}
             name="Done"
@@ -59,8 +82,13 @@ const Analytics = () => {
           {showChart && (
             <div>
               <Chart
-                data={[done.length, deleted.length, postponed.length]}
-                labels={["Done", "Deleted", "Postponed"]}
+                data={[
+                  done.length,
+                  deleted.length,
+                  postponed.length,
+                  todos.length,
+                ]}
+                labels={["Done", "Deleted", "Postponed", "InProgress"]}
               />
               <button onClick={() => setShowChart(!showChart)}>
                 Hide a diagram
