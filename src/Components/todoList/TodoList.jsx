@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import Advice from "../advice/Advice";
 import AddTodo from "../addTodo/AddTodo";
 import Todo from "../todo/Todo";
