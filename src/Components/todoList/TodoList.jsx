@@ -1,6 +1,6 @@
 import react, { useEffect, useState, useRef } from "react";
 import Advice from "../advice/Advice";
-import AddTodo from "../addTodo/AddTodo";
+import AddTodo from "../addTodo/AddTodo.jsx";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
 import Area from "../../Components/area/Area.jsx";
