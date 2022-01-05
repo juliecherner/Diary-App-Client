@@ -2,7 +2,14 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import "./todo.css";
 
-const Todo = ({ text, date, deleteTodo, moveToDone, moveToPostponed }) => {
+const Todo = ({
+  text,
+  date,
+  deleteTodo,
+  editTodo,
+  moveToDone,
+  moveToPostponed,
+}) => {
   return (
     <div className="todo">
       <div className="todo-container">
@@ -18,7 +25,9 @@ const Todo = ({ text, date, deleteTodo, moveToDone, moveToPostponed }) => {
           <Button color="error" onClick={() => deleteTodo(text)}>
             Delete
           </Button>
-          <Button color="info">Edit</Button>
+          <Button color="info" onClick={() => editTodo(text)}>
+            Edit
+          </Button>
           <Button color="success" onClick={() => moveToDone(text)}>
             Done
           </Button>

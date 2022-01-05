@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
 import Chart from "../../Components/analyticsChart/analyticsChart";
-//import Chart from "../../Components/analyticsChart/analyticsChart";
 import Warning from "../../Components/warning/Warning";
+import Button from "@mui/material/Button";
 
 const Analytics = () => {
   const [showChart, setShowChart] = useState(false);
@@ -75,9 +75,9 @@ const Analytics = () => {
             total={tasksLength}
             color="yellow"
           />
-          <button onClick={() => setShowChart(!showChart)}>
-            Show a diagram
-          </button>
+          <Button variant="text" onClick={() => setShowChart(!showChart)}>
+            {showChart ? <div>Hide a diagram</div> : <div>Show a diagram</div>}
+          </Button>
 
           {showChart && (
             <div>
@@ -90,9 +90,6 @@ const Analytics = () => {
                 ]}
                 labels={["Done", "Deleted", "Postponed", "InProgress"]}
               />
-              <button onClick={() => setShowChart(!showChart)}>
-                Hide a diagram
-              </button>
             </div>
           )}
         </div>

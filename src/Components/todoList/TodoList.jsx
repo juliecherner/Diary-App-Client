@@ -1,19 +1,18 @@
 import { React, useEffect, useState } from "react";
 import Advice from "../advice/Advice";
 import AddTodo from "../addTodo/AddTodo";
+import EditTodo from "../editTodo/EditTodo";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
 import Area from "../area/Area";
-import "./todoList.css";
 import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import "./todoList.css";
 
 const TodoList = () => {
   const [advice, setAdvice] = useState([]);
 
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos") || "[]";
-
     if (savedTodos) {
       const todosArray = JSON.parse(savedTodos);
       return todosArray;
@@ -43,6 +42,9 @@ const TodoList = () => {
 
   const [currentTodo, setCurrentTodo] = useState("");
   const [adviceButtons, setAdviceButtons] = useState(true);
+  const [editMode, setEditMode] = useState(false);
+  const [editedTodo, setEditedTodo] = useState("");
+  const [indexEdit, setIndexEdit] = useState(0);
 
   const getAdvisedTodo = async () => {
     const random = Math.floor(Math.random() * 25);
@@ -86,6 +88,34 @@ const TodoList = () => {
     setDeleted([...deleted, ...item]);
   };
 
+  const editTodo = (event) => {
+    setEditMode(!editMode);
+    const index = todos.findIndex((todo) => todo === event);
+    setIndexEdit(index);
+
+    const copiedArray = todos.slice();
+    if (editedTodo.length > 0) {
+      copiedArray[indexEdit] = editedTodo;
+    }
+    setTodos(copiedArray);
+    setEditMode(!editMode);
+    setEditedTodo("");
+  };
+
+  const getEditInput = (event) => {
+    setEditedTodo(event.target.value);
+  };
+
+  const setEditInputToTodos = () => {
+    const copiedArray = todos.slice();
+    if (editedTodo.length > 0) {
+      copiedArray[indexEdit] = editedTodo;
+    }
+    setTodos(copiedArray);
+    setEditMode(!editMode);
+    setEditedTodo("");
+  };
+
   const moveToDone = (text) => {
     const filteredArray = todos.filter((todo) => todo !== text);
     setTodos(filteredArray);
@@ -108,6 +138,7 @@ const TodoList = () => {
           text={todo}
           date={getCurrentTime()}
           deleteTodo={deleteTodo}
+          editTodo={editTodo}
           moveToDone={moveToDone}
           moveToPostponed={moveToPostponed}
         />
@@ -176,12 +207,23 @@ const TodoList = () => {
 
   return (
     <div>
-      <AddTodo
-        inputValue={currentTodo}
-        getInput={getInput}
-        handleSubmit={handleSubmit}
-        setInputToTodos={setInputToTodos}
-      />
+      {editMode ? (
+        <EditTodo
+          getEditInput={getEditInput}
+          handleSubmit={handleSubmit}
+          setEditInputToTodos={setEditInputToTodos}
+          inputEditValue={editedTodo}
+          editTodo={editTodo}
+        />
+      ) : (
+        <AddTodo
+          inputValue={currentTodo}
+          getInput={getInput}
+          handleSubmit={handleSubmit}
+          setInputToTodos={setInputToTodos}
+        />
+      )}
+
       {displayTodos()}
       <Advice
         object={advice}
