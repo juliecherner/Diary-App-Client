@@ -1,5 +1,24 @@
 .advice {
-  border: 2px solid red;
+  padding: 0.5rem 2rem;
+  outline: 1px solid darkgrey;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.advice:hover {
+  transform: scale(1.01);
+  outline: 2px solid darkgrey;
+}
+
+.advice-buttons {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+}
+
+.advice-text {
+  line-height: 2rem;
 }

@@ -1,8 +1,12 @@
-.advised-todo {
-  border: 2px solid red;
-}
-
 .areas-container {
+  padding: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.todolist--clearbuttons {
+  display: flex;
+  gap: 50%;
+  justify-content: center;
 }

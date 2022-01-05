@@ -9,19 +9,18 @@ import "./App.css";
 const App = () => {
   return (
     <Router>
-      <nav>
-        <div className="link-element">
-          <Link to="/">Home</Link>
-        </div>
-
-        <div className="link-element">
-          <Link to="/diary">Diary</Link>
-        </div>
-
-        <div className="link-element">
-          <Link to="/analytics">Analytics</Link>
-        </div>
+      <nav className="header">
+        <Link className="header-element" to="/">
+          Home
+        </Link>
+        <Link className="header-element" to="/diary">
+          Diary
+        </Link>
+        <Link className="header-element" to="/analytics">
+          Analytics
+        </Link>
       </nav>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/diary" element={<Diary />} />

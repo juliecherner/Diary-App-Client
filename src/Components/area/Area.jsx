@@ -1,6 +1,6 @@
-import "./area.css";
 import DoneIcon from "@mui/icons-material/Done";
 import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline";
+import "./area.css";
 
 const Area = ({ name, text, color }) => {
   return (

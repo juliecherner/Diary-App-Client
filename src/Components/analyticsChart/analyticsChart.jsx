@@ -13,7 +13,7 @@ const analyticsChart = ({ data, labels }) => {
           "rgb(14, 188, 48)",
           "rgb(210, 51, 51)",
           "rgb(255, 205, 86)",
-          "rgb(255,192,203)",
+          "rgb(173,216,230)",
         ],
         hoverOffset: 4,
       },

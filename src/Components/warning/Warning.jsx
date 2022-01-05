@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 
 const Warning = ({ total, todos, deleted, postponed, done }) => {
   return (
-    <Stack sx={{ width: "80%" }} spacing={1}>
+    <Stack sx={{ width: "100%" }} spacing={1}>
       {Math.floor((todos.length / total) * 100) > 50 && (
         <Alert variant="outlined" severity="error">
           Warning: Pay attention that more than 50% of your todos are not done,

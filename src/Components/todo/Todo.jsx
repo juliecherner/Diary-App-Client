@@ -22,16 +22,20 @@ const Todo = ({
           variant="contained"
           aria-label="outlined primary button group"
         >
-          <Button color="error" onClick={() => deleteTodo(text)}>
+          <Button size="small" color="error" onClick={() => deleteTodo(text)}>
             Delete
           </Button>
-          <Button color="info" onClick={() => editTodo(text)}>
+          <Button size="small" color="info" onClick={() => editTodo(text)}>
             Edit
           </Button>
-          <Button color="success" onClick={() => moveToDone(text)}>
+          <Button size="small" color="success" onClick={() => moveToDone(text)}>
             Done
           </Button>
-          <Button color="warning" onClick={() => moveToPostponed(text)}>
+          <Button
+            size="small"
+            color="warning"
+            onClick={() => moveToPostponed(text)}
+          >
             Postponed
           </Button>
         </ButtonGroup>

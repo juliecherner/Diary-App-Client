@@ -1,9 +1,14 @@
 .area {
-  border: 2px solid purple;
-  max-width: 45vw;
+  margin: 0.3rem 0 0.3rem 0;
+  border: 1px solid darkgrey;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   padding: 0.5rem 1rem;
   align-items: center;
+  border-radius: 5px;
+}
+
+.area:hover {
+  border: 1px solid black;
 }

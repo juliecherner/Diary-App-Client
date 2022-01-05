@@ -2,6 +2,7 @@ import react, { useState, useEffect } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import "./edittodo.css";
 
 const EditTodo = ({
   getEditInput,
@@ -14,6 +15,7 @@ const EditTodo = ({
     <div>
       <form onSubmit={handleSubmit}>
         <TextField
+          fullWidth
           size="small"
           type="text"
           onChange={getEditInput}

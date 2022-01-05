@@ -10,7 +10,7 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
     <div>
       {visibility && (
         <div className="advice">
-          <div>{object.todo}</div>
+          <div className="advice-text">{object.todo}</div>
           <div className="advice-buttons">
             <ButtonGroup>
               <Button
@@ -20,7 +20,7 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
                 onClick={setAdviceToList}
                 size="small"
               >
-                <AddTaskIcon /> Good, add to list
+                <AddTaskIcon /> Good advice
               </Button>
               <Button
                 variant="outlined"
@@ -28,7 +28,7 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
                 onClick={deleteAdvice}
                 size="small"
               >
-                <NotInterestedIcon /> Bad, delete
+                <NotInterestedIcon /> Bad advice
               </Button>
             </ButtonGroup>
           </div>

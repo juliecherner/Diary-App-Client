@@ -9,9 +9,13 @@ const Diary = () => {
     <div className="diary">
       <Time />
       <TodoList />
-      <nav>
-        <Link to="/">Return home</Link>
-        <Link to="/analytics">Analyze my data</Link>
+      <nav className="diary--links">
+        <Link className="diary--linkitem" to="/">
+          Return home
+        </Link>
+        <Link className="diary--linkitem" to="/analytics">
+          Analyze my data
+        </Link>
       </nav>
     </div>
   );

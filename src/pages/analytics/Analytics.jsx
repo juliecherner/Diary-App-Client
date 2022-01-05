@@ -4,6 +4,7 @@ import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
 import Chart from "../../Components/analyticsChart/analyticsChart";
 import Warning from "../../Components/warning/Warning";
 import Button from "@mui/material/Button";
+import "./analytics.css";
 
 const Analytics = () => {
   const [showChart, setShowChart] = useState(false);
@@ -40,10 +41,12 @@ const Analytics = () => {
   });
 
   return (
-    <div>
+    <div className="analytics">
       {tasksLength ? (
         <div>
-          <div>Total {tasksLength} todos</div>
+          <div className="total">
+            Total: <span>{tasksLength} todos</span>
+          </div>
           <Warning
             done={done}
             postponed={postponed}
@@ -51,40 +54,48 @@ const Analytics = () => {
             deleted={deleted}
             total={tasksLength}
           />
-          <ResultsBlock
-            data={todos}
-            name="InProgress"
-            total={tasksLength}
-            color="pink"
-          />
-          <ResultsBlock
-            data={done}
-            name="Done"
-            total={tasksLength}
-            color="green"
-          />
-          <ResultsBlock
-            data={deleted}
-            name="Deleted"
-            total={tasksLength}
-            color="red"
-          />
-          <ResultsBlock
-            data={postponed}
-            name="Postponed"
-            total={tasksLength}
-            color="yellow"
-          />
-          <Button
-            variant="text"
-            color="success"
-            onClick={() => setShowChart(!showChart)}
-          >
-            {showChart ? <div>Hide a diagram</div> : <div>Show a diagram</div>}
-          </Button>
+          <div className="results-area">
+            <ResultsBlock
+              data={todos}
+              name="In Progress"
+              total={tasksLength}
+              color="lightblue"
+            />
+            <ResultsBlock
+              data={done}
+              name="Done"
+              total={tasksLength}
+              color="green"
+            />
+            <ResultsBlock
+              data={deleted}
+              name="Deleted"
+              total={tasksLength}
+              color="red"
+            />
+            <ResultsBlock
+              data={postponed}
+              name="Postponed"
+              total={tasksLength}
+              color="yellow"
+            />
+          </div>
+          <div className="analytics--button">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => setShowChart(!showChart)}
+            >
+              {showChart ? (
+                <div>Hide a diagram</div>
+              ) : (
+                <div>Show a diagram</div>
+              )}
+            </Button>
+          </div>
 
           {showChart && (
-            <div>
+            <div className="analytics-chart">
               <Chart
                 data={[
                   done.length,

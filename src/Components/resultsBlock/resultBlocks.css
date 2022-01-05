@@ -1,0 +1,13 @@
+.analytics-results-title {
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.analytics-percentage {
+  font-weight: bold;
+}
+
+.results-block {
+  margin: 1.5rem 0;
+}

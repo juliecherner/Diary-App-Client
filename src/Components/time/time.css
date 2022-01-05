@@ -1,0 +1,14 @@
+.time-today {
+  color: green;
+  font: 1.5rem bold;
+  padding-bottom: 0.5rem;
+}
+
+.time-date {
+  padding-bottom: 0.5rem;
+  color: darkgrey;
+}
+
+.time-time {
+  font: 1.5rem bold;
+}

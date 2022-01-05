@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/system";
 import TablePaginationUnstyled from "@mui/base/TablePaginationUnstyled";
+import "./resultBlocks.css";
 
 export default function ResultsBlock({ name, data, total, color }) {
   function createData(category, text, total) {
@@ -137,15 +138,20 @@ export default function ResultsBlock({ name, data, total, color }) {
   };
 
   return (
-    <div>
-      <div style={{ backgroundColor: color }}>
+    <div className="results-block">
+      <div
+        style={{ backgroundColor: color }}
+        className="analytics-results-title"
+      >
         <div>
-          {name}: {data.length} todos from {total}
+          {name} : {data.length} todos from {total}
         </div>
-        <div>Percentage : {Math.floor((data.length / total) * 100)} %</div>
+        <div className="analytics-percentage">
+          Percentage : {Math.floor((data.length / total) * 100)} %
+        </div>
       </div>
 
-      <Root sx={{ width: 800, maxWidth: "100%" }}>
+      <Root sx={{ width: "100%", maxWidth: "100%" }}>
         <table aria-label="custom pagination table">
           <thead>
             <tr>
@@ -161,7 +167,7 @@ export default function ResultsBlock({ name, data, total, color }) {
             ).map((row, index) => (
               <tr key={row.text + index}>
                 <td>{row.category}</td>
-                <td style={{ width: 500 }} align="right">
+                <td style={{ width: 600 }} align="right">
                   {row.text}
                 </td>
                 <td style={{ width: 120 }} align="right">
