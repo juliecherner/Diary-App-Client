@@ -9,19 +9,19 @@ const Time = () => {
   );
   const [actualDate, setActualDate] = useState(new Date().toDateString());
 
-  const getTime = () => {
-    const time = new Date().toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-    const date = new Date().toDateString();
-    setActualTime(time);
-    setActualDate(date);
-  };
+  // const getTime = () => {
+  //   const time = new Date().toLocaleTimeString("en-US", {
+  //     hour: "2-digit",
+  //     minute: "2-digit",
+  //   });
+  //   const date = new Date().toDateString();
+  //   setActualTime(time);
+  //   setActualDate(date);
+  // };
 
-  useEffect(() => {
-    setInterval(getTime, 1000);
-  });
+  // useEffect(() => {
+  //   setInterval(getTime, 1000);
+  // });
 
   return (
     <div>

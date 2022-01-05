@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import Advice from "../advice/Advice";
-import AddTodo from "../addTodo/AddTodo";
+//import AddTodo from "../addTodo/AddTodo";
 import EditTodo from "../editTodo/EditTodo";
 import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
@@ -207,7 +207,7 @@ const TodoList = () => {
 
   return (
     <div>
-      {editMode ? (
+      {/* {editMode ? (
         <EditTodo
           getEditInput={getEditInput}
           handleSubmit={handleSubmit}
@@ -222,7 +222,7 @@ const TodoList = () => {
           handleSubmit={handleSubmit}
           setInputToTodos={setInputToTodos}
         />
-      )}
+      )} */}
 
       {displayTodos()}
       <Advice
