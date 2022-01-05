@@ -48,3 +48,19 @@ a {
   border-radius: 15px;
   color: white;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .titles {
+    padding-top: 15vh;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .diary {
+    padding: 1rem 0rem 1rem 1rem;
+  }
+
+  .titles {
+    font-size: 2rem;
+  }
+}

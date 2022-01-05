@@ -8,3 +8,15 @@
   font: 1.5rem bold;
   padding: 1rem;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .error {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .error {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}

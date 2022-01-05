@@ -19,3 +19,15 @@
   flex-direction: row;
   justify-content: flex-end;
 }
+
+@media only screen and (max-width: 767px) {
+  .todo {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  .todo-buttons {
+    padding-top: 0.5rem;
+    justify-content: flex-start;
+  }
+}

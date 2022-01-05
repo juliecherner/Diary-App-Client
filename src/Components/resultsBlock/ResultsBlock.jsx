@@ -167,7 +167,7 @@ export default function ResultsBlock({ name, data, total, color }) {
             ).map((row, index) => (
               <tr key={row.text + index}>
                 <td>{row.category}</td>
-                <td style={{ width: 600 }} align="right">
+                <td style={{ maxWidth: 600 }} align="right">
                   {row.text}
                 </td>
                 <td style={{ width: 120 }} align="right">

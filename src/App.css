@@ -1,10 +1,1 @@
-.header {
-  display: grid;
-  grid-template-columns: 10fr 1fr 1fr;
-  padding: 1.5rem 10rem;
-  font-weight: bold;
-}
 
-.header-element:hover {
-  color: green;
-}
