@@ -237,10 +237,10 @@ const TodoList = () => {
       </div>
       <div className="todolist--clearbuttons">
         <Button variant="outlined" color="error" onClick={clearAllData}>
-          Clear all data
+          <div>Clear all data</div>
         </Button>
         <Button variant="outlined" color="success" onClick={clearMarkedData}>
-          Leave todos only
+          <div>Leave todos only</div>
         </Button>
       </div>
     </div>

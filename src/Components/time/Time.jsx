@@ -3,28 +3,22 @@ import "./time.css";
 
 const Time = () => {
   const [actualTime, setActualTime] = useState(
-    new Date().toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    })
+    new Date().toLocaleTimeString("en-US")
   );
   const [actualDate, setActualDate] = useState(new Date().toDateString());
 
   const getTime = () => {
-    const time = new Date().toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    const time = new Date().toLocaleTimeString("en-US");
     const date = new Date().toDateString();
     setActualTime(time);
     setActualDate(date);
   };
 
   useEffect(() => {
-    //const interval = setInterval(() => getTime(), 1000);
-    setInterval(getTime, 1000);
-    clearInterval(actualDate);
-    clearInterval(actualTime);
+    const intervalId = setInterval(getTime, 1000);
+    return () => {
+      clearInterval(intervalId);
+    };
   });
 
   return (

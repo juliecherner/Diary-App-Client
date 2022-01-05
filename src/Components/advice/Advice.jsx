@@ -18,7 +18,7 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
                 variant="outlined"
                 color="success"
                 onClick={setAdviceToList}
-                size="small"
+                size="medium"
               >
                 <AddTaskIcon /> Good advice
               </Button>
@@ -26,7 +26,7 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
                 variant="outlined"
                 color="error"
                 onClick={deleteAdvice}
-                size="small"
+                size="medium"
               >
                 <NotInterestedIcon /> Bad advice
               </Button>

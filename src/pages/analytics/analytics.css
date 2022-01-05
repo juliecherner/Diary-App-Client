@@ -22,3 +22,9 @@
 .analytics--button {
   margin-bottom: 3rem;
 }
+
+.analytics-empty-link {
+  color: green;
+  font: 1.5rem bold;
+  padding: 1rem;
+}

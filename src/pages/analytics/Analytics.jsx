@@ -109,9 +109,11 @@ const Analytics = () => {
           )}
         </div>
       ) : (
-        <div>
-          You don't have marked todos.
-          <Link to="/diary">Mark your progress in diary</Link>
+        <div className="analytics-empty">
+          <div>You don't have todos.</div>
+          <div className="analytics-empty-link">
+            <Link to="/diary">Mark your progress in diary</Link>
+          </div>
         </div>
       )}
     </div>
