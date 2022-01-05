@@ -140,7 +140,7 @@ export default function ResultsBlock({ name, data, total, color }) {
     <div>
       <div style={{ backgroundColor: color }}>
         <div>
-          {name}: {data.length} todos from {total} marked todos
+          {name}: {data.length} todos from {total}
         </div>
         <div>Percentage : {Math.floor((data.length / total) * 100)} %</div>
       </div>

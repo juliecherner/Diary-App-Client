@@ -20,15 +20,13 @@ const Time = () => {
   };
 
   useEffect(() => {
-    // const source = CancelToken.source();
-    setInterval(getTime, 5000);
-    // {
-    //   cancelToken: source.token}
-  }, [actualTime, actualDate]);
+    setInterval(getTime, 1000);
+  });
 
   return (
     <div>
       <div>Today</div>
+
       <div>{actualDate}</div>
       <div>{actualTime}</div>
     </div>

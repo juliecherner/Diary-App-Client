@@ -10,9 +10,17 @@ const App = () => {
   return (
     <Router>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/diary">Diary</Link>
-        <Link to="/analytics">Analytics</Link>
+        <div className="link-element">
+          <Link to="/">Home</Link>
+        </div>
+
+        <div className="link-element">
+          <Link to="/diary">Diary</Link>
+        </div>
+
+        <div className="link-element">
+          <Link to="/analytics">Analytics</Link>
+        </div>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />

@@ -75,7 +75,11 @@ const Analytics = () => {
             total={tasksLength}
             color="yellow"
           />
-          <Button variant="text" onClick={() => setShowChart(!showChart)}>
+          <Button
+            variant="text"
+            color="success"
+            onClick={() => setShowChart(!showChart)}
+          >
             {showChart ? <div>Hide a diagram</div> : <div>Show a diagram</div>}
           </Button>
 

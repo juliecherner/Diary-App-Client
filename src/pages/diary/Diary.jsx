@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Time from "../../Components/time/Time";
 import TodoList from "../../Components/todoList/TodoList";
+import "./diary.css";
 
 const Diary = () => {
   return (
-    <div>
+    <div className="diary">
       <Time />
       <TodoList />
       <nav>
