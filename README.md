@@ -8,9 +8,11 @@ Basic CRUD todo list with options to mark todos as done, postponed, deleted and 
 
 - React
 - React DOM Router
-- Chart js
+- Chart JS
 - Materual UI
 - Netlify
 - Firebase
 
 ## Structure
+
+![App structure] (src/assets/images/Diary components.drawio.png)
