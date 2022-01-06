@@ -15,4 +15,4 @@ Basic CRUD todo list with options to mark todos as done, postponed, deleted and 
 
 ## Structure
 
-![App structure] ("Diary components.drawio.png")
+[![Diary-components-drawio.png](https://i.postimg.cc/R0dsWmxb/Diary-components-drawio.png)](https://postimg.cc/mccNn0DQ)
