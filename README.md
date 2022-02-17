@@ -37,7 +37,7 @@ The application has full CRUD functionality:
 
 ![diary page](./src/assets/images/todo-list.png)
 
-- **Anatylics and warnings for current todos**
+- **Analytics and warnings for current todos**
 
 ![analytics and warnings](./src/assets/images/analytics.png)
 
