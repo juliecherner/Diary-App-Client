@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import Error from "./pages/error/Error";
 import Header from "./Components/header/Header";
 
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   return (
