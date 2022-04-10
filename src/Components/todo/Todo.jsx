@@ -10,6 +10,17 @@ const Todo = ({
   moveToDone,
   moveToPostponed,
 }) => {
+  const todoButtonsConstants = [
+    { color: "error", function: () => deleteTodo(text), text: "Delete" },
+    { color: "info", function: () => editTodo(text), text: "Edit" },
+    { color: "success", function: () => moveToDone(text), text: "Done" },
+    {
+      color: "warning",
+      function: () => moveToPostponed(text),
+      text: "Postponed",
+    },
+  ];
+
   return (
     <div className="todo">
       <div className="todo-container">
@@ -22,22 +33,16 @@ const Todo = ({
           variant="contained"
           aria-label="outlined primary button group"
         >
-          <Button size="small" color="error" onClick={() => deleteTodo(text)}>
-            Delete
-          </Button>
-          <Button size="small" color="info" onClick={() => editTodo(text)}>
-            Edit
-          </Button>
-          <Button size="small" color="success" onClick={() => moveToDone(text)}>
-            Done
-          </Button>
-          <Button
-            size="small"
-            color="warning"
-            onClick={() => moveToPostponed(text)}
-          >
-            Postponed
-          </Button>
+          {todoButtonsConstants.map((button) => (
+            <Button
+              key={button.text}
+              size="small"
+              color={button.color}
+              onClick={button.function}
+            >
+              {button.text}
+            </Button>
+          ))}
         </ButtonGroup>
       </div>
     </div>
