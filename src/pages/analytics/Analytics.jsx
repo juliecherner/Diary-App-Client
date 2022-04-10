@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
 import Chart from "../../Components/analyticsChart/analyticsChart";
 import Warning from "../../Components/warning/Warning";

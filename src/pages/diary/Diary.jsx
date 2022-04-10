@@ -4,18 +4,26 @@ import Time from "../../Components/time/Time";
 import TodoList from "../../Components/todoList/TodoList";
 import "./diary.scss";
 
+const diaryConstants = [
+  { title: "Return home", link: "/" },
+  { title: "Analyze my data", link: "/analytics" },
+];
+
 const Diary = () => {
   return (
     <div className="diary">
       <Time />
       <TodoList />
       <nav className="diary--links">
-        <Link className="diary--linkitem" to="/">
-          Return home
-        </Link>
-        <Link className="diary--linkitem" to="/analytics">
-          Analyze my data
-        </Link>
+        {diaryConstants.map((constant) => (
+          <Link
+            key={constant.title}
+            className="diary--linkitem"
+            to={constant.link}
+          >
+            {constant.title}
+          </Link>
+        ))}
       </nav>
     </div>
   );
