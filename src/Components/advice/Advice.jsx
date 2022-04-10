@@ -1,9 +1,8 @@
-import react from "react";
-import "./advice.scss";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import "./advice.scss";
 
 const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
   return (
