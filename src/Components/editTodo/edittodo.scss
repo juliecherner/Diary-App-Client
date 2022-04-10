@@ -1,6 +1,7 @@
+@use "../../utils";
+
 form {
   padding: 1rem 0;
-  display: flex;
-  flex-direction: row;
+  @include utils.flex-row;
   gap: 0.5rem;
 }

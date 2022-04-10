@@ -1,3 +1,5 @@
+@use "../../utils";
+
 .diary {
   padding: 2rem 10rem 0rem 10rem;
   text-align: center;
@@ -5,20 +7,19 @@
 
 .diary--links {
   padding: 2rem;
-  display: flex;
-  flex-direction: row;
+  @include utils.flex-row;
   justify-content: space-between;
 }
 
 .diary--linkitem {
   padding: 0.5rem;
   font-weight: bold;
-  border: 1px solid green;
+  border: 1px solid utils.$constrast-green-color;
   border-radius: 15px;
 }
 
 .diary--linkitem:hover {
-  background-color: green;
+  background-color: utils.$constrast-green-color;
   border-radius: 15px;
   color: white;
 }

@@ -1,3 +1,5 @@
+@use "../../utils";
+
 .areas-container {
   padding: 1rem 0;
   display: grid;
@@ -7,6 +9,7 @@
 
 .todolist--clearbuttons {
   display: flex;
+  @include utils.flex-row;
   gap: 50%;
   justify-content: center;
 }

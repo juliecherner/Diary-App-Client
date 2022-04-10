@@ -1,10 +1,12 @@
+@use "../../utils";
+
 .error {
   padding: 2rem 10rem 0rem 10rem;
   text-align: center;
 }
 
 .error-link {
-  color: green;
+  color: utils.$constrast-green-color;
   font: 1.5rem bold;
   padding: 1rem;
 }

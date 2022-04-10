@@ -1,8 +1,9 @@
+@use "../../utils";
+
 .analytics {
   padding: 2rem 10rem 0rem 10rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  @include utils.flex-column;
   justify-content: center;
 }
 
@@ -24,7 +25,7 @@
 }
 
 .analytics-empty-link {
-  color: green;
+  color: utils.$constrast-green-color;
   font: 1.5rem bold;
   padding: 1rem;
 }

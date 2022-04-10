@@ -1,3 +1,5 @@
+@use "../../utils";
+
 .header--regular {
   display: grid;
   grid-template-columns: 10fr 1fr 1fr;
@@ -6,7 +8,7 @@
 }
 
 .header-element:hover {
-  color: green;
+  color: utils.$constrast-green-color;
 }
 
 .header--mobile {

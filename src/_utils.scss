@@ -1,0 +1,13 @@
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+$secondary-grey-color: darkgrey;
+
+$constrast-green-color: green;

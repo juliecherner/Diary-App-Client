@@ -1,28 +1,30 @@
+@use "../../utils";
+
 .homepage {
-  display: flex;
-  flex-direction: column;
+  @include utils.flex-column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.titles {
+.homepage-titles {
   padding-top: 25vh;
   font-size: 4rem;
   font-weight: bold;
 }
-.title1 {
-  color: darkgrey;
+
+.homepage-title1 {
+  color: utils.$secondary-grey-color;
 }
 
 span,
-.title2 {
-  color: green;
+.homepage-title2 {
+  color: utils.$constrast-green-color;
 }
 
 .home--welcome {
   padding: 5vh 0;
-  color: darkgrey;
+  color: utils.$secondary-grey-color;
   font-size: 1.5rem;
 }
 
@@ -39,12 +41,12 @@ a {
 .home--link {
   padding: 0.5rem;
   font-weight: bold;
-  border: 1px solid green;
+  border: 1px solid utils.$constrast-green-color;
   border-radius: 15px;
 }
 
 .home--link:hover {
-  background-color: green;
+  background-color: utils.$constrast-green-color;
   border-radius: 15px;
   color: white;
 }
@@ -59,7 +61,6 @@ a {
   .diary {
     padding: 1rem 0rem 1rem 1rem;
   }
-
   .titles {
     font-size: 2rem;
   }

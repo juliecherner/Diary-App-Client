@@ -11,9 +11,9 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      <div className="titles">
-        <div className="title1"> Track your plans </div>
-        <div className="title2">and get things done </div>
+      <div className="homepage-titles">
+        <div className="homepage-title1"> Track your plans </div>
+        <div className="homepage-title2">and get things done </div>
       </div>
       <div>
         <div className="home--welcome">Welcome back!</div>

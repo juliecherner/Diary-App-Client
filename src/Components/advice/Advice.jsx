@@ -28,6 +28,7 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
             <ButtonGroup>
               {adviceConstants.map((constant) => (
                 <Button
+                  key={constant.text}
                   onClick={constant.function}
                   color={constant.color}
                   variant="outlined"

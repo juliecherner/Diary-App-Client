@@ -1,6 +1,8 @@
+@use "../../utils";
+
 .advice {
   padding: 0.5rem 2rem;
-  outline: 1px solid darkgrey;
+  outline: 1px solid utils.$secondary-grey-color;
   border-radius: 15px;
   display: grid;
   grid-template-columns: 6.5fr 5.5fr;
@@ -10,12 +12,11 @@
 
 .advice:hover {
   transform: scale(1.01);
-  outline: 2px solid darkgrey;
+  outline: 2px solid utils.$secondary-grey-color;
 }
 
 .advice-buttons {
-  display: flex;
-  flex-direction: row;
+  @include utils.flex-row;
   justify-content: flex-end;
   align-items: center;
 }
@@ -32,8 +33,7 @@
 
 @media only screen and (max-width: 767px) {
   .advice {
-    display: flex;
-    flex-direction: column;
+    @include utils.flex-column;
   }
   .advice-buttons {
     padding-top: 0.5rem;
