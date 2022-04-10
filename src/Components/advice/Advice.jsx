@@ -5,6 +5,20 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import "./advice.scss";
 
 const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
+  const adviceConstants = [
+    {
+      color: "success",
+      function: setAdviceToList,
+      text: "Good advice",
+      icon: <AddTaskIcon />,
+    },
+    {
+      color: "error",
+      function: deleteAdvice,
+      text: "Bad advice",
+      icon: <NotInterestedIcon />,
+    },
+  ];
   return (
     <div>
       {visibility && (
@@ -12,22 +26,16 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
           <div className="advice-text">{object.todo}</div>
           <div className="advice-buttons">
             <ButtonGroup>
-              <Button
-                onClick={setAdviceToList}
-                variant="outlined"
-                color="success"
-                size="medium"
-              >
-                <AddTaskIcon /> Good advice
-              </Button>
-              <Button
-                variant="outlined"
-                color="error"
-                onClick={deleteAdvice}
-                size="medium"
-              >
-                <NotInterestedIcon /> Bad advice
-              </Button>
+              {adviceConstants.map((constant) => (
+                <Button
+                  onClick={constant.function}
+                  color={constant.color}
+                  variant="outlined"
+                  size="medium"
+                >
+                  {constant.icon} {constant.text}
+                </Button>
+              ))}
             </ButtonGroup>
           </div>
         </div>
