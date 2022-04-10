@@ -5,21 +5,27 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import MenuIcon from "@mui/icons-material/Menu";
-import "./header.css";
+import "./header.scss";
+
+const headerConstants = [
+  { title: "Home", link: "/" },
+  { title: "Diary", link: "/diary" },
+  { title: "Analytics", link: "/analytics" },
+];
 
 const Header = () => {
   return (
     <div>
       <nav className="header--regular">
-        <Link className="header-element" to="/">
-          Home
-        </Link>
-        <Link className="header-element" to="/diary">
-          Diary
-        </Link>
-        <Link className="header-element" to="/analytics">
-          Analytics
-        </Link>
+        {headerConstants.map((headItem) => (
+          <Link
+            key={headItem.title}
+            className="header-element"
+            to={headItem.link}
+          >
+            {headItem.title}
+          </Link>
+        ))}
       </nav>
 
       <nav className="header--mobile">
@@ -34,21 +40,15 @@ const Header = () => {
                 <MenuIcon />
               </Button>
               <Menu {...bindMenu(popupState)}>
-                <MenuItem onClick={popupState.close}>
-                  <Link className="header-element" to="/">
-                    Home
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={popupState.close}>
-                  <Link className="header-element" to="/diary">
-                    Diary
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={popupState.close}>
-                  <Link className="header-element" to="/analytics">
-                    Analytics
-                  </Link>
-                </MenuItem>
+                {headerConstants.map((headItem) => (
+                  <div key={headItem.title}>
+                    <MenuItem onClick={popupState.close}>
+                      <Link className="header-element" to={headItem.link}>
+                        {headItem.title}
+                      </Link>
+                    </MenuItem>
+                  </div>
+                ))}
               </Menu>
             </React.Fragment>
           )}

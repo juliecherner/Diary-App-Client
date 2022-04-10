@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import react, { useState } from "react";
-import "./home.css";
+import "./home.scss";
 
 const Home = () => {
   const [todos, setTodos] = useState(() => {

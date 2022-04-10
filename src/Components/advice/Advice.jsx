@@ -1,5 +1,5 @@
 import react from "react";
-import "./advice.css";
+import "./advice.scss";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import Button from "@mui/material/Button";
@@ -17,7 +17,6 @@ const Advice = ({ object, deleteAdvice, visibility, setAdviceToList }) => {
                 onClick={setAdviceToList}
                 variant="outlined"
                 color="success"
-                onClick={setAdviceToList}
                 size="medium"
               >
                 <AddTaskIcon /> Good advice

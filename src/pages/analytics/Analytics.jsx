@@ -4,7 +4,7 @@ import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
 import Chart from "../../Components/analyticsChart/analyticsChart";
 import Warning from "../../Components/warning/Warning";
 import Button from "@mui/material/Button";
-import "./analytics.css";
+import "./analytics.scss";
 
 const Analytics = () => {
   const [showChart, setShowChart] = useState(false);

@@ -6,7 +6,7 @@ import Todo from "../todo/Todo";
 import { getOne } from "../../api/api";
 import Area from "../area/Area";
 import Button from "@mui/material/Button";
-import "./todoList.css";
+import "./todoList.scss";
 
 const TodoList = () => {
   const [advice, setAdvice] = useState([]);

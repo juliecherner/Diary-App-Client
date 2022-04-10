@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import "./todo.css";
+import "./todo.scss";
 
 const Todo = ({
   text,

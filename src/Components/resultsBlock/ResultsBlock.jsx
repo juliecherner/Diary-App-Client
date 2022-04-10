@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/system";
 import TablePaginationUnstyled from "@mui/base/TablePaginationUnstyled";
-import "./resultBlocks.css";
+import "./resultBlocks.scss";
 
 export default function ResultsBlock({ name, data, total, color }) {
   function createData(category, text, total) {

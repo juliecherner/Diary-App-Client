@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Time from "../../Components/time/Time";
 import TodoList from "../../Components/todoList/TodoList";
-import "./diary.css";
+import "./diary.scss";
 
 const Diary = () => {
   return (
