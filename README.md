@@ -1,4 +1,4 @@
-# Personal Diary (Front End Project)
+# Personal Diary Project
 
 **CRUD Todo List** with options to mark todos as done, postponed, deleted and analyze results and effectifity.
 
@@ -8,6 +8,7 @@
 
 - React.js
 - Redux and Redux-thunk
+- SCSS/SASS
 - Chart.js
 - Materual UI
 - Netlify
