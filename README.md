@@ -2,11 +2,12 @@
 
 **CRUD Todo List** with options to mark todos as done, postponed, deleted and analyze results and effectifity.
 
-[Check out deployment to Netlify](https://julie-cherner-diary-project.netlify.app/)
+[Deployment on Netlify](https://julie-cherner-diary-project.netlify.app/)
 
 ## Technologies
 
 - React.js
+- Redux and Redux-thunk
 - Chart.js
 - Materual UI
 - Netlify
