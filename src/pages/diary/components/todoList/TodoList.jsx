@@ -26,7 +26,7 @@ const TodoList = () => {
         <Todo key={todo._id} object={todo} />
       ))}
       <Advice />
-      <div className="areas-container">
+      <div className="diary-areas-container">
         {filteredTodos("done").map((todo) => (
           <TodoArea name="Done" key={todo._id} text={todo.text} color="green" />
         ))}
@@ -39,7 +39,7 @@ const TodoList = () => {
           />
         ))}
       </div>
-      <div className="todolist--clearbuttons">
+      <div className="diary-todolist--clearbuttons">
         <Button
           name="delete-all"
           variant="outlined"

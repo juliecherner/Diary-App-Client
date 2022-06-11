@@ -22,10 +22,10 @@ const Time = () => {
   });
 
   return (
-    <div>
-      <div className="time-today">Today</div>
-      <div className="time-date">{actualDate}</div>
-      <div className="time-time">{actualTime}</div>
+    <div className="diary-time">
+      <div className="diary-time-today">Today</div>
+      <div className="diary-time-date">{actualDate}</div>
+      <div className="diary-time-time">{actualTime}</div>
     </div>
   );
 };

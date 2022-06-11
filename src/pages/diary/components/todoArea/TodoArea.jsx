@@ -4,7 +4,7 @@ import "./todo-area.scss";
 
 const TodoArea = ({ name, text, color }) => {
   return (
-    <div className="todo-area" style={{ backgroundColor: color }}>
+    <div className="diary-todo-area" style={{ backgroundColor: color }}>
       {name === "Done" ? <DoneIcon /> : <PauseCircleOutlineIcon />}
       <div>{text}</div>
     </div>

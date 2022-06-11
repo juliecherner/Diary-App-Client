@@ -1,6 +1,6 @@
 @use "../../../../utils";
 
-.area {
+.diary-todo-area {
   margin: 0.3rem 0 0.3rem 0;
   border: 1px solid utils.$secondary-grey-color;
   @include utils.flex-row;
@@ -10,6 +10,6 @@
   border-radius: 5px;
 }
 
-.area:hover {
+.diary-todo-area:hover {
   border: 1px solid black;
 }

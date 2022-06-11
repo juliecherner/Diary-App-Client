@@ -7,7 +7,6 @@ import {
   postponeTodo,
   getAllTodos,
 } from "../../../../store/actions/todos.actions";
-
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import "./todo.scss";
@@ -49,13 +48,13 @@ const Todo = ({ object }) => {
   };
 
   return (
-    <div className="todo">
-      <div className="todo-container">
+    <div className="diary-todo">
+      <div className="diary-todo-container">
         <div>{object.text}</div>
         <div>Created {formatDate(object.date)}</div>
       </div>
 
-      <div className="todo-buttons">
+      <div className="diary--todo-buttons">
         <ButtonGroup
           variant="contained"
           aria-label="outlined primary button group"

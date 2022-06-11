@@ -1,6 +1,6 @@
 @use "../../../../utils";
 
-.todo {
+.diary-todo {
   padding: 0.5rem 2rem;
   outline: 1px solid utils.$secondary-grey-color;
   border-radius: 15px;
@@ -11,22 +11,22 @@
   margin: 0.7rem 0;
 }
 
-.todo:hover {
+.diary-todo:hover {
   transform: scale(1.01);
   outline: 2px solid utils.$secondary-grey-color;
 }
 
-.todo-buttons {
+.diary--todo-buttons {
   @include utils.flex-row;
   justify-content: flex-end;
 }
 
 @media only screen and (max-width: 767px) {
-  .todo {
+  .diary-todo {
     @include utils.flex-column;
     padding: 0.5rem;
   }
-  .todo-buttons {
+  .diary--todo-buttons {
     padding-top: 0.5rem;
     justify-content: flex-start;
   }

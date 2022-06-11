@@ -38,9 +38,9 @@ const Advice = () => {
 
   return (
     <div>
-      <div className="advice">
-        <div className="advice-text">{advice.text}</div>
-        <div className="advice-buttons">
+      <div className="diary-advice">
+        <div className="diary-advice-text">{advice.text}</div>
+        <div className="diary-advice-buttons">
           <ButtonGroup>
             {adviceConstants.map((constant) => (
               <Button

@@ -30,7 +30,7 @@ const Analytics = () => {
             inProgressLength={inProgress.length}
             totalLength={todos.length}
           />
-          <div className="results-area">
+          <div className="analytics-results-area">
             <ResultsBlock
               data={inProgress}
               name="In Progress"

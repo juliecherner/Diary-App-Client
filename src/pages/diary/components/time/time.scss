@@ -1,16 +1,20 @@
 @use "../../../../utils";
 
-.time-today {
+.diary-time{
+  margin-bottom: 3vh;
+}
+
+.diary-time-today {
   color: utils.$constrast-green-color;
   font: 1.5rem bold;
   padding-bottom: 0.5rem;
 }
 
-.time-date {
+.diary-time-date {
   padding-bottom: 0.5rem;
   color: utils.$secondary-grey-color;
 }
 
-.time-time {
+.diary-time-time {
   font: 1.5rem bold;
 }

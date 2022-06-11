@@ -1,6 +1,6 @@
 @use "../../../../utils";
 
-form {
+.diary-edit-todo-form {
   padding: 1rem 0;
   @include utils.flex-row;
   gap: 0.5rem;

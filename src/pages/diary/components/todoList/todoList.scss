@@ -1,13 +1,13 @@
 @use "../../../../utils";
 
-.areas-container {
+.diary-areas-container {
   padding: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 }
 
-.todolist--clearbuttons {
+.diary-todolist--clearbuttons {
   display: flex;
   @include utils.flex-row;
   gap: 50%;

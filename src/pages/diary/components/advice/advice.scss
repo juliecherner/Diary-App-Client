@@ -1,6 +1,6 @@
 @use "../../../../utils";
 
-.advice {
+.diary-advice {
   padding: 0.5rem 2rem;
   outline: 1px solid utils.$secondary-grey-color;
   border-radius: 15px;
@@ -10,12 +10,12 @@
   text-align: left;
 }
 
-.advice:hover {
+.diary-advice:hover {
   transform: scale(1.01);
   outline: 2px solid utils.$secondary-grey-color;
 }
 
-.advice-buttons {
+.diary-advice-buttons {
   @include utils.flex-row;
   justify-content: flex-end;
   align-items: center;

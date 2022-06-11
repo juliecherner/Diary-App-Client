@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getAdvice, deleteAdvice } from "../../store/actions/advice.action";
+import {
+  getAdvice,
+  deleteAdvice,
+} from "../../../../store/actions/advice.action";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 export const AdviceList = () => {

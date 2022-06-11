@@ -138,15 +138,15 @@ export default function ResultsBlock({ name, data, total, color }) {
   };
 
   return (
-    <div className="results-block">
+    <div className="analytics-results-block">
       <div
         style={{ backgroundColor: color }}
-        className="analytics-results-title"
+        className="analytics-results-block-title"
       >
         <div>
           {name} : {data.length} todos from {total}
         </div>
-        <div className="analytics-percentage">
+        <div className="analytics-results-block-percentage">
           Percentage : {Math.floor((data.length / total) * 100)} %
         </div>
       </div>

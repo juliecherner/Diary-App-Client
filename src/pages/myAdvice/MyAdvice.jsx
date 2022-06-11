@@ -1,4 +1,4 @@
-import { AdviceList } from "../../Components/adviceList/AdviceList";
+import { AdviceList } from "./components/adviceList/AdviceList";
 import { NewAdvice } from "./components/newAdvice/NewAdvice";
 
 const MyAdvice = () => {

@@ -7,7 +7,7 @@ import "./addtodo.scss";
 const AddTodo = ({ getInput, handleSubmit, setInputToTodos, inputValue }) => {
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="diary-add-todo-form" onSubmit={handleSubmit}>
         <TextField
           fullWidth
           size="small"
