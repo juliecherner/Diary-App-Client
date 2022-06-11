@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Time from "../../Components/time/Time";
-import TodoList from "../../Components/todoList/TodoList";
+import Time from "./components/time/Time";
+import TodoList from "./components/todoList/TodoList";
 import "./diary.scss";
 
 const diaryConstants = [

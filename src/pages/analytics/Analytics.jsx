@@ -1,82 +1,58 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import ResultsBlock from "../../Components/resultsBlock/ResultsBlock";
-import Chart from "../../Components/analyticsChart/analyticsChart";
-import Warning from "../../Components/warning/Warning";
+import ResultsBlock from "./components/resultsBlock/ResultsBlock";
+import Chart from "./components/analyticsChart/analyticsChart";
+import Warning from "./components/warning/Warning";
 import Button from "@mui/material/Button";
 import "./analytics.scss";
 
 const Analytics = () => {
+  const todos = useSelector((state) => state.todosState);
   const [showChart, setShowChart] = useState(false);
-  const [tasksLength, setTasksLength] = useState(0);
 
-  const [done, setDone] = useState(() => {
-    const savedDone = localStorage.getItem("done") || "[]";
-    const todosArray = JSON.parse(savedDone);
-    return todosArray;
-  });
-
-  const [postponed, setPostponed] = useState(() => {
-    const savedPostponed = localStorage.getItem("postponed") || "[]";
-    const todosArray = JSON.parse(savedPostponed);
-    return todosArray;
-  });
-
-  const [deleted, setDeleted] = useState(() => {
-    const deletedPostponed = localStorage.getItem("deleted") || "[]";
-    const todosArray = JSON.parse(deletedPostponed);
-    return todosArray;
-  });
-
-  const [todos, setTodos] = useState(() => {
-    const todoItems = localStorage.getItem("todos") || "[]";
-    const todosArray = JSON.parse(todoItems);
-    return todosArray;
-  });
-
-  useEffect(() => {
-    setTasksLength(
-      done.length + postponed.length + deleted.length + todos.length
-    );
-  });
+  const inProgress = todos.filter((todo) => todo.list === "inProgress");
+  const done = todos.filter((todo) => todo.list === "done");
+  const postponed = todos.filter((todo) => todo.list === "postponed");
+  const deleted = todos.filter((todo) => todo.list === "deleted");
 
   return (
     <div className="analytics">
-      {tasksLength ? (
+      {todos.length ? (
         <div>
           <div className="total">
-            Total: <span>{tasksLength} todos</span>
+            Total: <span>{todos.length} todos</span>
           </div>
           <Warning
-            done={done}
-            postponed={postponed}
-            todos={todos}
-            deleted={deleted}
-            total={tasksLength}
+            doneLength={done.length}
+            postponedLength={postponed.length}
+            deletedLength={deleted.length}
+            inProgressLength={inProgress.length}
+            totalLength={todos.length}
           />
           <div className="results-area">
             <ResultsBlock
-              data={todos}
+              data={inProgress}
               name="In Progress"
-              total={tasksLength}
+              total={todos.length}
               color="lightblue"
             />
             <ResultsBlock
               data={done}
               name="Done"
-              total={tasksLength}
+              total={todos.length}
               color="green"
             />
             <ResultsBlock
               data={deleted}
               name="Deleted"
-              total={tasksLength}
+              total={todos.length}
               color="red"
             />
             <ResultsBlock
               data={postponed}
               name="Postponed"
-              total={tasksLength}
+              total={todos.length}
               color="yellow"
             />
           </div>
@@ -101,9 +77,9 @@ const Analytics = () => {
                   done.length,
                   deleted.length,
                   postponed.length,
-                  todos.length,
+                  inProgress.length,
                 ]}
-                labels={["Done", "Deleted", "Postponed", "InProgress"]}
+                labels={["Done", "Deleted", "Postponed", "In progress"]}
               />
             </div>
           )}

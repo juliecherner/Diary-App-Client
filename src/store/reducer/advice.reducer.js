@@ -1,22 +1,17 @@
 import { adviceConstants } from "../constants";
 
-const initialState = {};
-//filter by progress on front
-
-const object = {
-  id: "",
-  text: "",
-  progress: "",
-  date: "date",
-};
+const initialState = [];
 
 export const adviceReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case adviceConstants.GET_ONE:
-      //payload {}
+    case adviceConstants.GET_ALL_ADVICE:
       return payload;
-    case adviceConstants.DELETE_ONE:
-      return {};
+    case adviceConstants.ADD_ADVICE:
+      return [...state, payload];
+    case adviceConstants.DELETE_ADVICE:
+      const copiedState = [...state];
+      copiedState.filter((todo) => todo._id !== payload);
+      return copiedState;
     default:
       return state;
   }

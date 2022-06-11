@@ -7,12 +7,11 @@
 ## Technologies
 
 - React.js
-- Redux and Redux-thunk
+- Redux and Redux Thunk
 - SCSS/SASS
 - Chart.js
 - Materual UI
 - Netlify
-- Firebase
 
 ## Functionality
 
@@ -20,7 +19,8 @@ The application has full CRUD functionality:
 
 - get the amount of todos in progress on the home page
 - get a current date and time on the planning page
-- get todo advice from Firebase (option to recieve or decline a piece of advice)
+- get todo advice from the list
+- add or delete advice
 - add a new todo
 - edit new todo content and delete a todo
 - mark as postponed/done/deleted and get a todo in a specific list
@@ -31,7 +31,7 @@ The application has full CRUD functionality:
   - done
 - get warnings based on the current state of progress (4 types)
 - get Pie (Doughnut) Chart Diagram that visualize the structure of 4 groups of todos
-- option to clean all current todos as well as all diary content
+- option to clean all todos as well as all todo that are not in progress
 
 ## Todos groups and analytics
 

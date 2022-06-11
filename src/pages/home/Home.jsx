@@ -1,13 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import react, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./home.scss";
 
 const Home = () => {
-  const [todos, setTodos] = useState(() => {
-    const todoItems = localStorage.getItem("todos") || "[]";
-    const todosArray = JSON.parse(todoItems);
-    return todosArray;
-  });
+  const todosInProgress = useSelector((state) =>
+    state.todosState.filter((todo) => todo.list === "inProgress")
+  );
 
   return (
     <div className="homepage">
@@ -17,13 +15,13 @@ const Home = () => {
       </div>
       <div>
         <div className="home--welcome">Welcome back!</div>
-        {todos.length === 1 ? (
+        {todosInProgress.length === 1 ? (
           <div className="home--progress">
-            You have <span>{todos.length} todo</span> in progress
+            You have <span>{todosInProgress.length} todo</span> in progress
           </div>
         ) : (
           <div className="home--progress">
-            You have <span>{todos.length} todos</span> in progress
+            You have <span>{todosInProgress.length} todos</span> in progress
           </div>
         )}
 

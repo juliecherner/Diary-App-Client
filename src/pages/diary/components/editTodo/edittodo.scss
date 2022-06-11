@@ -1,0 +1,7 @@
+@use "../../../../utils";
+
+form {
+  padding: 1rem 0;
+  @include utils.flex-row;
+  gap: 0.5rem;
+}
