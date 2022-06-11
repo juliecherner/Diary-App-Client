@@ -74,7 +74,8 @@ export const moveToDeleted = async (id) => {
 
 export const deleteAll = async () => {
   try {
-    await api.delete("/todos");
+    const result = await api.delete("/todos");
+    return result;
   } catch (error) {
     console.log(error.response);
   }
@@ -82,7 +83,8 @@ export const deleteAll = async () => {
 
 export const deleteAllExceptInProgress = async () => {
   try {
-    await api.delete("/todos/except-in-progress");
+    const result = await api.delete("/todos/except-in-progress");
+    return result;
   } catch (error) {
     console.log(error.response);
   }

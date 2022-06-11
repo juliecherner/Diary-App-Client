@@ -11,7 +11,7 @@ export const todosReducer = (state = initialState, { type, payload }) => {
       return [...state, payload];
     }
     case todosConstants.EDIT_ONE: {
-      return changeFieldById(state, payload, "text", payload.text);
+      return changeFieldById(state, payload._id, "text", payload.text);
     }
     case todosConstants.DELETE_ONE: {
       return changeFieldById(state, payload, "list", "deleted");
@@ -27,8 +27,7 @@ export const todosReducer = (state = initialState, { type, payload }) => {
     }
     case todosConstants.DELETE_ALL_NOT_IN_PROGRESS: {
       const stateCopy = state.slice();
-      stateCopy.filter((todo) => todo.list === "inProgress");
-      return stateCopy;
+      return stateCopy.filter((todo) => todo.list === "inProgress");
     }
     default: {
       return state;
@@ -37,10 +36,8 @@ export const todosReducer = (state = initialState, { type, payload }) => {
 };
 
 const changeFieldById = (state, id, field, newValue) => {
-  console.log("id", id);
   const stateCopy = state.slice();
   const index = stateCopy.findIndex((todo) => todo._id === id);
-  console.log("index", index);
   stateCopy[index][field] = newValue;
   return stateCopy;
 };

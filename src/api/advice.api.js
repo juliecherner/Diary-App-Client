@@ -32,6 +32,6 @@ export const getRandomAdvice = async () => {
     const randomAdvice = await api.get("/advice/random");
     return randomAdvice;
   } catch (error) {
-    console.log("fail from api");
+    console.log(error);
   }
 };

@@ -5,7 +5,6 @@ import AddTodo from "../addTodo/AddTodo";
 import EditTodo from "../editTodo/EditTodo";
 import Todo from "../todo/Todo";
 import TodoArea from "../todoArea/TodoArea";
-import Button from "@mui/material/Button";
 import "./todoList.scss";
 
 const TodoList = () => {
@@ -14,10 +13,6 @@ const TodoList = () => {
   const filteredTodos = (listName) => {
     const copiedTodos = todos.slice();
     return copiedTodos.filter((todo) => todo.list === listName);
-  };
-
-  const handleDelete = (name) => {
-    console.log(name);
   };
 
   return (
@@ -38,24 +33,6 @@ const TodoList = () => {
             color="yellow"
           />
         ))}
-      </div>
-      <div className="diary-todolist--clearbuttons">
-        <Button
-          name="delete-all"
-          variant="outlined"
-          color="error"
-          onClick={(name) => handleDelete(name)}
-        >
-          <div>Clear all data</div>
-        </Button>
-        <Button
-          name="delete-except-inprogress"
-          variant="outlined"
-          color="success"
-          onClick={(name) => handleDelete(name)}
-        >
-          <div>Leave todos only</div>
-        </Button>
       </div>
     </div>
   );

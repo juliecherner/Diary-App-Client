@@ -8,11 +8,12 @@ export const getAdvice = () => async (dispatch) => {
 
 export const addAdvice = (advice) => async (dispatch) => {
   const { data } = await adviceAPI.addAdvice(advice);
+  if (!data) return;
   dispatch({ type: adviceConstants.ADD_ADVICE, payload: data });
 };
 
 export const deleteAdvice = (id) => async (dispatch) => {
-  console.log("action id", id);
   const { data } = await adviceAPI.deleteAdvice(id);
+  if (!data) return;
   dispatch({ type: adviceConstants.DELETE_ADVICE, payload: data._id });
 };

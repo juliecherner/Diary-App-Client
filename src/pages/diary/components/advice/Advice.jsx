@@ -23,12 +23,15 @@ const adviceConstants = [
 
 const Advice = () => {
   const dispatch = useDispatch();
+
   const advice = useSelector((state) => state.currentAdviceState);
 
   const handleClick = (text) => {
     if (text === "Bad advice") {
+      dispatch(getAdvice());
     } else {
       dispatch(addTodo(advice));
+      dispatch(getAdvice());
     }
   };
 

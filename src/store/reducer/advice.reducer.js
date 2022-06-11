@@ -10,8 +10,7 @@ export const adviceReducer = (state = initialState, { type, payload }) => {
       return [...state, payload];
     case adviceConstants.DELETE_ADVICE:
       const copiedState = [...state];
-      copiedState.filter((todo) => todo._id !== payload);
-      return copiedState;
+      return copiedState.filter((todo) => todo._id !== payload);
     default:
       return state;
   }
