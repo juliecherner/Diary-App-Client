@@ -35,14 +35,22 @@ The application has full CRUD functionality:
 
 ## Todos groups and analytics
 
+- **Welcome page with reminder how many todos in progress user has**
+
+![welcome page](./src/assets/images/main2.png)
+
 - **Todos list area with full CRUD functionality**
 
-![diary page](./src/assets/images/todo-list.png)
+![diary page](./src/assets/images/diary2.png)
 
 - **Analytics and warnings for current todos**
 
-![analytics and warnings](./src/assets/images/analytics.png)
+![analytics and warnings](./src/assets/images/analytics2.png)
 
 - **Visualization with Diagram (with Chart.js)**
 
 ![diagram](./src/assets/images/diagram.png)
+
+- **List of advice**
+
+![advice](./src/assets/images/advice.png)
