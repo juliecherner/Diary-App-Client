@@ -16,7 +16,6 @@ export const addTodo = async (todo) => {
     return newTodo;
   } catch (error) {
     console.log(error.response);
-    // alert("not added");
   }
 };
 

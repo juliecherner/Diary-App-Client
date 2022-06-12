@@ -5,6 +5,7 @@ import {
   deleteAdvice,
 } from "../../../../store/actions/advice.action";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import "./advice-list.scss";
 
 export const AdviceList = () => {
   const dispatch = useDispatch();
@@ -20,11 +21,14 @@ export const AdviceList = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="my-advice-list">
       {allAdvice.map((advice) => (
-        <div key={advice._id}>
+        <div key={advice._id} className="my-advice-list-item">
           {advice.text}
-          <CloseOutlinedIcon onClick={() => handleDelete(advice._id)} />
+          <CloseOutlinedIcon
+            color="error"
+            onClick={() => handleDelete(advice._id)}
+          />
         </div>
       ))}
     </div>

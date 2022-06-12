@@ -4,6 +4,7 @@ import { addAdvice } from "../../../../store/actions/advice.action";
 import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import "./new-advice.scss";
 
 export const NewAdvice = () => {
   const [newAdvice, setAdvice] = useState("");
@@ -18,7 +19,7 @@ export const NewAdvice = () => {
   };
 
   return (
-    <div>
+    <div className="my-advice-new">
       <form
         className="diary-add-todo-form"
         onSubmit={(event) => event.preventDefault()}

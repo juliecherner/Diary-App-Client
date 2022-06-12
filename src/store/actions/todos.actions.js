@@ -8,10 +8,11 @@ export const getAllTodos = () => async (dispatch) => {
 };
 
 export const addTodo = (todo) => async (dispatch) => {
-  const { data } = await todoAPI.addTodo(todo);
-  if (!data) alert("not added");
-  else {
-    dispatch({ type: todosConstants.ADD_ONE, payload: data });
+  const data = await todoAPI.addTodo(todo);
+  if (!data) {
+    alert("not added");
+  } else {
+    dispatch({ type: todosConstants.ADD_ONE, payload: data.data });
   }
 };
 
