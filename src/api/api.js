@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const urls = {
-  development: "http://localhost:8080",
+  development: "http://localhost:8080/api",
   production: "https://personal-diary-app-backend.herokuapp.com/api",
 };
 
